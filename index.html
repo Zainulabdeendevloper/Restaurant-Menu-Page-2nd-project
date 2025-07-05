@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DelishBite | Restaurant Menu</title>
+</head>
+
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background: #fffdf6;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 3rem;
+        text-align: center;
+        color: #ff6f61;
+        margin-bottom: 10px;
+    }
+
+    p {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+    }
+
+    header {
+        background: #ff6f61;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        animation: fadeInDown 1s ease-in-out;
+    }
+
+    nav {
+        background: #333;
+        padding: 10px;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        gap: 30px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s ease;
+    }
+
+    nav a:hover {
+        color: #ff6f61;
+        transform: scale(1.1);
+    }
+
+    .menu-section {
+        max-width: 800px;
+        margin: 40px auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        animation: fadeInUp 1s ease-in-out;
+    }
+
+    .menu-section h2 {
+        margin-bottom: 20px;
+        color: #ff6f61;
+        border-bottom: 2px solid #ff6f61;
+        padding-bottom: 5px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid #ccc;
+    }
+
+    th,
+    td {
+        padding: 12px;
+        text-align: left;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #333;
+        color: white;
+        margin-top: 50px;
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+
+<body>
+    <h1>DelishBite</h1>
+    <p>Your Taste, Our Passion</p>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#Starters">Starters</a></li>
+                <li><a href="#Main Course">Main Course</a></li>
+                <li><a href="#Desserts">Desserts</a></li>
+                <li><a href="#Drinks">Drinks</a></li>
+
+            </ul>
+
+        </nav>
+    </header>
+    
+  <section id="starters" class="menu-section">
+    <h2>🍽 Starters</h2>
+    <table>
+      <tr><th>Item</th><th>Description</th><th>Price (PKR)</th></tr>
+      <tr><td>Spring Rolls</td><td>Crispy veggie rolls</td><td>1,390</td></tr>
+      <tr><td>Chicken Wings</td><td>Spicy and saucy</td><td>1,946</td></tr>
+    </table>
+  </section>
+
+  <section id="main-course" class="menu-section">
+    <h2>🥘 Main Course</h2>
+    <table>
+      <tr><th>Item</th><th>Description</th><th>Price (PKR)</th></tr>
+      <tr><td>Grilled Chicken</td><td>Served with veggies</td><td>3,336</td></tr>
+      <tr><td>Pasta Alfredo</td><td>Creamy white sauce</td><td>2,780</td></tr>
+    </table>
+  </section>
+
+  <section id="desserts" class="menu-section">
+    <h2>🍰 Desserts</h2>
+    <table>
+      <tr><td>Chocolate Lava Cake</td><td>1,668 PKR</td></tr>
+      <tr><td>Ice Cream Sundae</td><td>1,112 PKR</td></tr>
+    </table>
+  </section>
+
+  <section id="drinks" class="menu-section">
+    <h2>🍹 Drinks</h2>
+    <table>
+      <tr><td>Mango Smoothie</td><td>834 PKR</td></tr>
+      <tr><td>Lemonade</td><td>556 PKR</td></tr>
+    </table>
+  </section>
+    <footer>
+        <p>&copy;2025 DelishBite. All rights reserved.</p>
+    </footer>
+
+
+
+</body>
+
+</html>
+<script>
+    const sections = document.querySelectorAll(".menu-section");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = "translateY(0)";
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    sections.forEach(section => {
+        section.style.opacity = 0;
+        section.style.transform = "translateY(50px)";
+        section.style.transition = "all 0.8s ease-in-out";
+        observer.observe(section);
+    });
+</script>
